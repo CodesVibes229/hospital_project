@@ -112,9 +112,3 @@ Ajoute un nouvel hôpital.
 {
     "message": "Hôpital ajouté avec succès!"
 }
-```
-
----
-
-## Auteur
-Développé par [Harold].

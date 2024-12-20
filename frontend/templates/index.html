@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" width="100">
-
-        <h1>Bienvenue sur le Système de Gestion des Hôpitaux</h1>
-        <a href="/hospitals">Voir la Liste des Hôpitaux</a>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <header class="relative bg-header-bg bg-cover bg-center h-64 flex items-center justify-center text-white">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="z-10 text-center">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
+            <h1 class="text-4xl font-bold">Bienvenue sur le Système de Gestion des Hôpitaux</h1>
+            <a href="/hospitals" class="mt-4 inline-block px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded shadow">Voir la Liste des Hôpitaux</a>
+        </div>
     </header>
-    <div class="content">
-        <p>Un endroit où vous pouvez facilement accéder à toutes les informations sur les hôpitaux, les centres de santé, les cliniques et les dispensaires de votre région.</p>
-        <a href="/add-hospital" class="button">Ajouter un Hôpital</a>
-    </div>
+    <main class="max-w-4xl mx-auto mt-8">
+        <p class="text-center text-lg">
+            Un endroit où vous pouvez facilement accéder à toutes les informations sur les hôpitaux, les centres de santé, les cliniques et les dispensaires de votre région.
+        </p>
+        <div class="mt-6 flex justify-center">
+            <a href="/add-hospital" class="px-6 py-2 bg-green-500 hover:bg-green-700 text-white rounded shadow">Ajouter un Hôpital</a>
+        </div>
+    </main>
 </body>
 </html>

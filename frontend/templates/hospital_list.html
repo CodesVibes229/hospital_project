@@ -4,74 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Hôpitaux</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" width="100">
-        <h1>Liste des Hôpitaux</h1>
-        <a href="/">Retour à l'accueil</a>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- ajustement : Bouton retour à la page d'accueil -->
+    <div class="p-4">
+        <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+            Retour à l'accueil
+        </a>
+    </div> <!-- ajustement -->
+    <header class="bg-blue-500 text-white p-4 text-center">
+        <h1 class="text-3xl font-bold">Liste des Hôpitaux</h1>
     </header>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Téléphone</th>
-                <th>Disponibilité</th>
-                <th>Services</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for hospital in hospitals %}
+    <main class="max-w-6xl mx-auto mt-8">
+        <table class="w-full bg-white shadow-md rounded">
+            <thead class="bg-blue-500 text-white">
                 <tr>
-                    <td>{{ hospital['name'] }}</td>
-                    <td>{{ hospital['address'] }}</td>
-                    <td>{{ hospital['phone'] }}</td>
-                    <td>{{ hospital['availability'] }}</td>
-                    <td>{{ hospital['services'] }}</td>
-                    <td>
-                        <a href="{{ url_for('delete_hospital', hospital_id=hospital['id']) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet hôpital ?');">
-                            Supprimer
-                        </a>
+                    <th class="px-4 py-2">Nom</th>
+                    <th class="px-4 py-2">Adresse</th>
+                    <th class="px-4 py-2">Téléphone</th>
+                    <th class="px-4 py-2">Disponibilité</th>
+                    <th class="px-4 py-2">Services</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hospital in hospitals %}
+                <tr class="hover:bg-gray-100">
+                    <td class="border px-4 py-2">{{ hospital.name }}</td>
+                    <td class="border px-4 py-2">{{ hospital.address }}</td>
+                    <td class="border px-4 py-2">{{ hospital.phone }}</td>
+                    <td class="border px-4 py-2">{{ hospital.availability }}</td>
+                    <td class="border px-4 py-2">{{ hospital.services }}</td>
+                    <td class="border px-4 py-2">
+                        <a href="{{ url_for('delete_hospital', id=hospital.id) }}" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded shadow">Supprimer</a>
                     </td>
                 </tr>
-            {% else %}
-                <tr>
-                    <td colspan="6">Aucun hôpital enregistré.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch('/api/hospitals')
-                .then(response => response.json())
-                .then(data => {
-                    const hospitalList = document.getElementById('hospital-list');
-                    if (data.length === 0) {
-                        hospitalList.innerHTML = "<p>Aucun hôpital trouvé.</p>";
-                    } else {
-                        data.forEach(hospital => {
-                            const div = document.createElement('div');
-                            div.innerHTML = `
-                                <h3>${hospital.name}</h3>
-                                <p><strong>Adresse :</strong> ${hospital.address}</p>
-                                <p><strong>Téléphone :</strong> ${hospital.phone}</p>
-                                <p><strong>Disponibilité :</strong> ${hospital.availability}</p>
-                                <p><strong>Services :</strong> ${hospital.services}</p>
-                                <hr>
-                            `;
-                            hospitalList.appendChild(div);
-                        });
-                    }
-                })
-                .catch(err => console.error('Erreur lors de la récupération des hôpitaux :', err));
-        });
-    </script>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
-
-

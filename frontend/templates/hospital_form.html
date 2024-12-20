@@ -4,70 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un Hôpital</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" width="100">
-        <h1>Ajouter un Hôpital</h1>
-        <a href="/">Retour à l'accueil</a>
-    </header>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-6">Ajouter un Hôpital</h1>
+        <form action="/add-hospital" method="POST" class="space-y-4">
+            <!-- Nom de l'hôpital -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Nom de l'Hôpital</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Ex: Hôpital Général"
+                    required
+                >
+            </div>
 
-    <div class="container">
-        <form method="POST" action="/add-hospital">
-            <h2>Formulaire d'ajout d'hôpital</h2>
+            <!-- Adresse -->
+            <div>
+                <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
+                <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Ex: 123 Rue Principale"
+                    required
+                >
+            </div>
 
-            <label for="name">Nom de l'Hôpital</label>
-            <input type="text" id="name" name="name" required>
+            <!-- Numéro de téléphone -->
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
+                <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Ex: +33 1 23 45 67 89"
+                    required
+                >
+            </div>
 
-            <label for="address">Adresse</label>
-            <input type="text" id="address" name="address" required>
+            <!-- Disponibilité -->
+            <div>
+                <label for="availability" class="block text-sm font-medium text-gray-700">Disponibilité</label>
+                <input
+                    type="text"
+                    id="availability"
+                    name="availability"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Ex: 24/7"
+                    required
+                >
+            </div>
 
-            <label for="phone">Numéro de téléphone</label>
-            <input type="text" id="phone" name="phone" required>
+            <!-- Services proposés -->
+            <div>
+                <label for="services" class="block text-sm font-medium text-gray-700">Services</label>
+                <textarea
+                    id="services"
+                    name="services"
+                    rows="3"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Ex: Cardiologie, Radiologie, Urgences"
+                    required
+                ></textarea>
+            </div>
 
-            <label for="availability">Disponibilité</label>
-            <select id="availability" name="availability">
-                <option value="Disponible">Disponible</option>
-                <option value="Non disponible">Non disponible</option>
-            </select>
-
-            <label for="services">Services proposés</label>
-            <textarea id="services" name="services" rows="4" required></textarea>
-
-            <input type="submit" value="Ajouter l'Hôpital">
+            <!-- Bouton Soumettre -->
+            <div>
+                <button
+                    type="submit"
+                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                >
+                    Ajouter
+                </button>
+            </div>
         </form>
-    </div>
+                <!-- ajustement : Bouton retour à la page d'accueil -->
+        <a href="/" class="block text-center text-blue-500 hover:underline mt-4">
+            Retour à l'Accueil
+        </a> <!-- ajustement -->
 
-    <script>
-        document.getElementById("hospitalForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const data = {
-                name: document.getElementById("name").value,
-                address: document.getElementById("address").value,
-                phone: document.getElementById("phone").value,
-                availability: document.getElementById("availability").value,
-                services: document.getElementById("services").value
-            };
-    
-            fetch('/api/hospitals', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
-                alert(result.message);
-                window.location.href = '/hospitals'; // Redirige vers la liste des hôpitaux
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                alert('Une erreur est survenue.');
-            });
-        });
-    </script>
+    </div>
 </body>
 </html>
-
