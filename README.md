@@ -10,33 +10,6 @@ Une application web développée avec Flask pour centraliser les informations de
 
 ---
 
-## Structure du Projet
-```
-project/
-│
-├── backend/
-│   ├── app.py                 # Serveur Flask et routes principales
-│   ├── database.db            # Fichier SQLite pour stocker les données
-│   ├── init_db.py             # Script pour initialiser la base de données
-│   │
-├── frontend/
-│   ├── templates/             # Pages HTML
-│   │   ├── index.html         # Page d'accueil
-│   │   ├── hospital_form.html # Formulaire d'ajout d'hôpital
-│   │   └── hospital_list.html # Liste des hôpitaux
-│   │
-│   ├── static/                # Fichiers statiques
-│       ├── css/
-│       │   └── styles.css     # Feuille de styles
-│       ├── js/
-│       │   └── scripts.js     # Scripts JavaScript
-│       └── images/            # Images
-│
-└── README.md                  # Documentation du projet
-```
-
----
-
 ## Installation
 
 ### Prérequis
@@ -47,7 +20,7 @@ project/
 1. Clonez ce dépôt :
    ```bash
    git clone <https://github.com/CodesVibes229/hospital_project.git>
-   cd project
+   cd hospital_project
    ```
 
 2. Accédez au dossier `backend` :
