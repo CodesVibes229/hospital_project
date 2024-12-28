@@ -37,7 +37,6 @@ def add_hospital():
         services = request.form['services']
         lat = request.form['lat']
         lng = request.form['lng']
-
         conn = get_db_connection()
         conn.execute('INSERT INTO hospitals (name, address, phone, availability, services, lat, lng) VALUES (?, ?, ?, ?, ?, ?, ?)',
                      (name, address, phone, availability, services, lat, lng))

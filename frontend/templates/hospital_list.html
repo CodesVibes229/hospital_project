@@ -27,6 +27,8 @@
                     <th class="px-4 py-2">Téléphone</th>
                     <th class="px-4 py-2">Disponibilité</th>
                     <th class="px-4 py-2">Services</th>
+                    <th class="px-4 py-2">Latitude</th>
+                    <th class="px-4 py-2">Longitude</th>
                     <th class="px-4 py-2">Actions</th>
                 </tr>
             </thead>
@@ -38,10 +40,15 @@
                     <td class="border px-4 py-2">{{ hospital.phone }}</td>
                     <td class="border px-4 py-2">{{ hospital.availability }}</td>
                     <td class="border px-4 py-2">{{ hospital.services }}</td>
+                    <td class="border px-4 py-2">{{ hospital.lat }}</td>
+                    <td class="border px-4 py-2">{{ hospital.lng }}</td>
                     <td class="border px-4 py-2 flex space-x-2">
                         <a href="{{ url_for('delete_hospital', id=hospital.id) }}" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded shadow">Supprimer</a>
                         <a href="{{ url_for('hospital_details', id=hospital.id) }}" class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded shadow">Détails</a>
-                        <a href="{{ url_for('view_doctors', hospital_id=hospital.id) }}" class="bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded shadow">Médecins</a>
+<a href="{{ url_for('view_doctors', hospital_id=hospital.id) }}" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded shadow"> Voir les Médecins</a>
+
+
+
                     </td>
                 </tr>
                 {% endfor %}
