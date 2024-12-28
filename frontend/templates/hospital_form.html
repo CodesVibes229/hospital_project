@@ -5,91 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un Hôpital</title>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script>
+        function addDoctorField() {
+            const container = document.getElementById('doctor-container');
+            const newField = document.createElement('div');
+            newField.innerHTML = `
+                <div class="mt-4">
+                    <label class="block text-sm font-medium text-gray-700">Nom du Médecin</label>
+                    <input type="text" name="doctor_names[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                </div>
+                <div class="mt-4">
+                    <label class="block text-sm font-medium text-gray-700">Spécialité</label>
+                    <input type="text" name="doctor_specialties[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                </div>
+            `;
+            container.appendChild(newField);
+        }
+    </script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
         <h1 class="text-2xl font-bold text-center mb-6">Ajouter un Hôpital</h1>
         <form action="/add-hospital" method="POST" class="space-y-4">
             <!-- Nom de l'hôpital -->
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Nom de l'Hôpital</label>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Ex: Hôpital Général"
-                    required
-                >
+                <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: Hôpital Général" required>
             </div>
 
             <!-- Adresse -->
             <div>
                 <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
-                <input
-                    type="text"
-                    id="address"
-                    name="address"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Ex: 123 Rue Principale"
-                    required
-                >
+                <input type="text" id="address" name="address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: 123 Rue Principale" required>
             </div>
 
             <!-- Numéro de téléphone -->
             <div>
                 <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
-                <input
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Ex: +33 1 23 45 67 89"
-                    required
-                >
+                <input type="text" id="phone" name="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: +33 1 23 45 67 89" required>
             </div>
 
             <!-- Disponibilité -->
             <div>
                 <label for="availability" class="block text-sm font-medium text-gray-700">Disponibilité</label>
-                <input
-                    type="text"
-                    id="availability"
-                    name="availability"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Ex: 24/7"
-                    required
-                >
+                <input type="text" id="availability" name="availability" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: 24/7" required>
             </div>
 
             <!-- Services proposés -->
             <div>
                 <label for="services" class="block text-sm font-medium text-gray-700">Services</label>
-                <textarea
-                    id="services"
-                    name="services"
-                    rows="3"
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Ex: Cardiologie, Radiologie, Urgences"
-                    required
-                ></textarea>
+                <textarea id="services" name="services" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: Cardiologie, Radiologie, Urgences" required></textarea>
+            </div>
+
+            <!-- Médecins -->
+            <div id="doctor-container">
+                <h2 class="text-xl font-semibold mt-8">Médecins</h2>
+                <button type="button" onclick="addDoctorField()" class="mt-2 text-blue-500 hover:underline">+ Ajouter un Médecin</button>
             </div>
 
             <!-- Bouton Soumettre -->
             <div>
-                <button
-                    type="submit"
-                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                >
-                    Ajouter
-                </button>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400">Ajouter</button>
             </div>
         </form>
-                <!-- ajustement : Bouton retour à la page d'accueil -->
-        <a href="/" class="block text-center text-blue-500 hover:underline mt-4">
-            Retour à l'Accueil
-        </a> <!-- ajustement -->
 
+        <a href="/" class="block text-center text-blue-500 hover:underline mt-4">Retour à l'Accueil</a>
     </div>
 </body>
 </html>

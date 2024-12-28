@@ -7,15 +7,17 @@
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
-    <!-- ajustement : Bouton retour à la page d'accueil -->
+    <!-- Bouton retour à l'accueil -->
     <div class="p-4">
         <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
             Retour à l'accueil
         </a>
-    </div> <!-- ajustement -->
+    </div>
+
     <header class="bg-blue-500 text-white p-4 text-center">
         <h1 class="text-3xl font-bold">Liste des Hôpitaux</h1>
     </header>
+
     <main class="max-w-6xl mx-auto mt-8">
         <table class="w-full bg-white shadow-md rounded">
             <thead class="bg-blue-500 text-white">
@@ -36,8 +38,10 @@
                     <td class="border px-4 py-2">{{ hospital.phone }}</td>
                     <td class="border px-4 py-2">{{ hospital.availability }}</td>
                     <td class="border px-4 py-2">{{ hospital.services }}</td>
-                    <td class="border px-4 py-2">
+                    <td class="border px-4 py-2 flex space-x-2">
                         <a href="{{ url_for('delete_hospital', id=hospital.id) }}" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded shadow">Supprimer</a>
+                        <a href="{{ url_for('hospital_details', id=hospital.id) }}" class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded shadow">Détails</a>
+                        <a href="{{ url_for('view_doctors', hospital_id=hospital.id) }}" class="bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded shadow">Médecins</a>
                     </td>
                 </tr>
                 {% endfor %}
