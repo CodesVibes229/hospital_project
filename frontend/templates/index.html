@@ -13,6 +13,13 @@
             <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
             <h1 class="text-4xl font-bold">Bienvenue sur le Système de Gestion des Hôpitaux</h1>
             <a href="/hospitals" class="mt-4 inline-block px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded shadow">Voir la Liste des Hôpitaux</a>
+            <!-- modif_log : Boutons de connexion/déconnexion -->
+            {% if not session['user'] %}
+                <a href="/auth/login" class="ml-4 inline-block px-6 py-2 bg-yellow-500 hover:bg-yellow-700 text-white rounded shadow">Se Connecter</a>
+            {% else %}
+                <span class="ml-4 inline-block px-6 py-2 bg-green-500 text-white rounded shadow">Bienvenue, {{ session['user'] }}</span>
+                <a href="/auth/logout" class="ml-4 inline-block px-6 py-2 bg-red-500 hover:bg-red-700 text-white rounded shadow">Se Déconnecter</a>
+            {% endif %}
         </div>
     </header>
     <main class="max-w-4xl mx-auto mt-8">
@@ -20,7 +27,12 @@
             Un endroit où vous pouvez facilement accéder à toutes les informations sur les hôpitaux, les centres de santé, les cliniques et les dispensaires de votre région.
         </p>
         <div class="mt-6 flex justify-center">
-            <a href="/add-hospital" class="px-6 py-2 bg-green-500 hover:bg-green-700 text-white rounded shadow">Ajouter un Hôpital</a>
+            <!-- modif_log : Affiche le bouton Ajouter un Hôpital uniquement si l'utilisateur est connecté -->
+            {% if session['user'] %}
+                <a href="/add-hospital" class="px-6 py-2 bg-green-500 hover:bg-green-700 text-white rounded shadow">Ajouter un Hôpital</a>
+            {% else %}
+                <p class="text-center text-sm text-red-500">Vous devez être connecté pour ajouter un hôpital.</p>
+            {% endif %}
         </div>
     </main>
 </body>

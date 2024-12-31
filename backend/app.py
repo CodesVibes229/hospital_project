@@ -1,8 +1,14 @@
+import logging
+
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import sqlite3
+from auth import app as auth_blueprint
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 DATABASE = 'database.db'
+app.register_blueprint(auth_blueprint, url_prefix='/auth')
+
+logging.basicConfig(filename='logs/app.log', level=logging.DEBUG)
 
 # Connexion
 def get_db_connection():
