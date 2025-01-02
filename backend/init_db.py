@@ -1,5 +1,5 @@
 import sqlite3
-
+from werkzeug.security import generate_password_hash
 DATABASE = 'database.db'
 
 
@@ -61,9 +61,25 @@ def create_database():
         )
     ''')
 
+    # --- modif_log : Création de la table users ---
+    # Création de la table des utilisateurs (si elle n'existe pas)
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            role TEXT DEFAULT 'user'
+        )
+    ''')
+
+    # Ajout d'un utilisateur admin par défaut
+    default_admin = ('admin', generate_password_hash('admin123', method='sha256'), 'admin')
+    cursor.execute('INSERT OR IGNORE INTO users (username, password, role) VALUES (?, ?, ?)', default_admin)
+
     # Insertion de quelques spécialités par défaut (si la table est vide)
     cursor.execute(
-        "INSERT OR IGNORE INTO specialties (id, name) VALUES (1, 'Cardiologie'), (2, 'Pédiatrie'), (3, 'Chirurgie')")
+        "INSERT OR IGNORE INTO specialties (id, name) VALUES (1, 'Cardiologie'), (2, 'Pédiatrie'), (3, 'Chirurgie')"
+    )
 
     conn.commit()
     conn.close()

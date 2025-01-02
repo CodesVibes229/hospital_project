@@ -1,11 +1,12 @@
 import logging
-
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+import os
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, session
 import sqlite3
 from auth import app as auth_blueprint
 
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 DATABASE = 'database.db'
+app.secret_key = os.urandom(24)
 app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
 logging.basicConfig(filename='logs/app.log', level=logging.DEBUG)
@@ -18,7 +19,19 @@ def get_db_connection():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if 'user_id' not in session:
+        flash('Veuillez vous connecter.', 'danger')
+        return redirect(url_for('auth.login'))
+
+    conn = get_db_connection()
+    hospitals = conn.execute('SELECT * FROM hospitals').fetchall()
+    conn.close()
+    return render_template('index.html', hospitals=hospitals)
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 
 # Liste des hôpitaux avec filtre par service
 @app.route('/hospitals')

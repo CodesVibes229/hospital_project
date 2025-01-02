@@ -12,3 +12,117 @@ WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 200-165-817
 INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 200-165-817
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:25] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:26] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:26] "GET /static/images/logo.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:26] "GET /static/images/header-bg.jpg HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:26] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:33] "GET /auth/login HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:41] "GET /hospitals HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:46:53] "GET /auth/login HTTP/1.1" 405 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 200-165-817
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:57:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:57:11] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:57:11] "GET /static/images/logo.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:57:12] "GET /static/images/header-bg.jpg HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 13:57:13] "GET /auth/login HTTP/1.1" 405 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 14:02:23] "GET /auth/login HTTP/1.1" 401 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 14:02:23] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 14:02:25] "GET /auth/login HTTP/1.1" 401 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 14:02:28] "GET /auth/login HTTP/1.1" 401 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 14:02:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 14:02:34] "GET /auth/login HTTP/1.1" 401 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 14:14:31] "GET /auth/login HTTP/1.1" 401 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:51:49] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:52:10] "GET /auth/login HTTP/1.1" 401 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:53:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:53:55] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:54:18] "POST /auth/login HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:54:18] "GET /auth/login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:54:18] "GET /auth/login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:54:18] "GET /auth/login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:54:18] "GET /auth/login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jan/2025 23:54:18] "GET /auth/login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:13:09] "POST /auth/login HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:13:09] "GET /auth/login?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:13:09] "GET /auth/login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:13:09] "GET /auth/login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:13:09] "GET /auth/login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:15:44] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:15:44] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:15:50] "GET /logout HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:15:50] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:34:32] "GET /logout HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:09] "GET /auth/logout HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:09] "GET /auth/logout?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:09] "GET /auth/logout?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:09] "GET /auth/logout?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:09] "GET /auth/logout?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:09] "GET /auth/logout?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:35] "GET /auth/logout HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:35] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:39] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:43] "GET /logout HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:47] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:47] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:50] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:58] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:58] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:41:58] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:42:01] "GET /auth/logout HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:42:01] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:43:11] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:43:11] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:43:22] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 00:43:22] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Detected change in '/home/harold/Documents/projet/hospital_project/backend/auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:37] "GET /dashboard HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:37] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:41] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:44] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:44] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:44] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:57] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:57] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:06:57] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:07:08] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:07:16] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [02/Jan/2025 01:07:16] "GET /auth/login HTTP/1.1" 200 -
