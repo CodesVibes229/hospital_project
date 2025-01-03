@@ -1,0 +1,90 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:42:59] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:42:59] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:42:59] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:42:59] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:43:07] "GET /auth/login HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /hospitals [GET]
+Traceback (most recent call last):
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/harold/Documents/projet/hospital_project/backend/app.py", line 76, in hospital_list
+    hospitals = conn.execute('SELECT * FROM hospitals').fetchall()
+sqlite3.OperationalError: no such table: hospitals
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:43:09] "GET /hospitals HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:43:10] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:43:10] "GET /auth/login HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /auth/login [POST]
+Traceback (most recent call last):
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/harold/Documents/projet/hospital_project/backend/auth.py", line 59, in login
+    user = conn.execute('SELECT * FROM users WHERE username = ?', (auth['username'],)).fetchone()
+sqlite3.OperationalError: no such table: users
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:43:28] "POST /auth/login HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /auth/login [POST]
+Traceback (most recent call last):
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/harold/Documents/projet/hospital_project/backend/auth.py", line 59, in login
+    user = conn.execute('SELECT * FROM users WHERE username = ?', (auth['username'],)).fetchone()
+sqlite3.OperationalError: no such table: users
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:52:37] "POST /auth/login HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:52:40] "GET /auth/login HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /auth/login [POST]
+Traceback (most recent call last):
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/harold/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/harold/Documents/projet/hospital_project/backend/auth.py", line 59, in login
+    user = conn.execute('SELECT * FROM users WHERE username = ?', (auth['username'],)).fetchone()
+sqlite3.OperationalError: no such table: users
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 09:52:46] "POST /auth/login HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 10:29:33] "GET / HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 10:29:33] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 10:29:44] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 10:29:44] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 10:32:05] "GET /auth/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 10:32:16] "POST /auth/login HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [03/Jan/2025 10:32:16] "GET /auth/login HTTP/1.1" 200 -

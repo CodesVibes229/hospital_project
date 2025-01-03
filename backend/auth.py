@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, make_response, render_template, redirect, url_for, flash, session
 import jwt
+import os
 import datetime
 from functools import wraps
 import sqlite3
@@ -7,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Blueprint('auth', __name__)
 DATABASE = 'database.db'
-SECRET_KEY = 'votre_cle_secrete'
+SECRET_KEY = os.getenv('SECRET_KEY', 'default_secret_key')
 
 
 # Connexion à la base de données
@@ -53,20 +54,28 @@ def login():
     if not auth or not auth.get('username') or not auth.get('password'):
         flash('Identifiants invalides', 'error')
         return redirect(url_for('auth.login'))
+    try:
+        conn = get_db_connection()
+        user = conn.execute('SELECT * FROM users WHERE username = ?', (auth['username'],)).fetchone()
+        conn.close()
 
-    conn = get_db_connection()
-    user = conn.execute('SELECT * FROM users WHERE username = ?', (auth['username'],)).fetchone()
-    conn.close()
+        if not user:
+            flash('Utilisateur non trouvé', 'error')
+            return redirect(url_for('auth.login'))
 
-    if not user or not check_password_hash(user['password'], auth['password']):
-        flash('Identifiants invalides', 'error')
+        if not check_password_hash(user['password'], auth['password']):
+            flash('Identifiants invalides', 'error')
+            return redirect(url_for('auth.login'))
+
+    except sqlite3.OperationalError as e:
+        flash(f"Erreur de base de données: {str(e)}", 'error')
         return redirect(url_for('auth.login'))
 
     token = jwt.encode({'id': user['id'], 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=12)},
                        SECRET_KEY)
 
     response = make_response(redirect(url_for('index')))
-    response.set_cookie('token', token)
+    response.set_cookie('token', token, httponly=True)
 
     flash('Connexion réussie!', 'success')
     return response
