@@ -20,7 +20,6 @@ Une application web développée avec Flask pour centraliser les informations de
 1. Clonez ce dépôt :
    ```bash
    git clone <https://github.com/CodesVibes229/hospital_project.git>
-   cd hospital_project
    ```
 
 2. Accédez au dossier `backend` :
