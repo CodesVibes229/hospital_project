@@ -1,0 +1,10 @@
+backend/node_modules
+backend/database.db
+backend/package.json
+backend/package-lock.json
+database.db
+run.py
+tailwind.config.js
+logs
+.env
+backend/.tables
