@@ -8,3 +8,4 @@ tailwind.config.js
 logs
 .env
 backend/.tables
+backend/__init__.py
